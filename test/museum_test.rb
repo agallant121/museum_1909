@@ -29,7 +29,22 @@ class MuseumTest < Minitest::Test
     @dmns.add_exhibit(gems_and_minerals)
     @dmns.add_exhibit(dead_sea_scrolls)
     @dmns.add_exhibit(imax)
-    expected = [Exhibit:0x00007fb400bbcdd8, Exhibit:0x00007fb400b851f8]
+    expected = [gems_and_minerals, dead_sea_scrolls, imax]
     assert_equal expected, @dmns.exhibits
+  end
+
+  def test_it_can_recommend_exhibits
+    @dmns = Museum.new("Denver Museum of Nature and Science")
+    bob = Patron.new("Bob", 20)
+    gems_and_minerals = Exhibit.new("Gems and Minerals", 0)
+    dead_sea_scrolls = Exhibit.new("Dead Sea Scrolls", 10)
+    @dmns.add_exhibit(gems_and_minerals)
+    @dmns.add_exhibit(dead_sea_scrolls)
+
+    bob.add_interest("Dead Sea Scrolls")
+    bob.add_interest("Gems and Minerals")
+
+    expected = [gems_and_minerals, dead_sea_scrolls]
+    assert_equal expected, @dmns.recommend_exhibits(bob)
   end
 end

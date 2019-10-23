@@ -10,7 +10,9 @@ class PatronTest < Minitest::Test
   end
 
   def test_it_exists
+    sally = Patron.new("Sally", 20)
     assert_instance_of Patron, @bob
+    assert_instance_of Patron, sally
   end
 
   def test_initialize
@@ -27,5 +29,13 @@ class PatronTest < Minitest::Test
     @bob.add_interest("Gems and Minerals")
     expected = ["Dead Sea Scrolls", "Gems and Minerals"]
     assert_equal expected, @bob.interests
+  end
+
+  def test_sally_can_add_interests
+    sally = Patron.new("Sally", 20)
+
+    sally.add_interest("IMAX")
+    expected = ["IMAX"]
+    assert_equal expected, sally.interests
   end
 end

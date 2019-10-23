@@ -1,106 +1,8 @@
-# Museum
-
-## Instructions
-
-* Fork this Repository
-* Clone your forked repo to your computer.
-* Complete the activity below.
-* Push your solution to your forked repo
-* Submit a pull request from your repository to this repository
-  * Put your name in your PR!
-
-### Iteration 1
-
-Use TDD to create an `Exhibit` and a `Patron` class that respond to the following interaction pattern:
-
-```ruby
-pry(main)> require './lib/exhibit'
-# => true
-
-pry(main)> require './lib/patron'
-# => true
-
-pry(main)> exhibit = Exhibit.new("Gems and Minerals", 0)    
-# => #<Exhibit:0x00007fcb13bd22d0...>
-
-pry(main)> exhibit.name
-# => "Gems and Minerals"
-
-pry(main)> exhibit.cost
-# => 0
-
-pry(main)> bob = Patron.new("Bob", 20)    
-# => #<Patron:0x00007fcb13b5c7d8...>
-
-pry(main)> bob.name
-# => "Bob"
-
-pry(main)> bob.spending_money
-# => 20
-
-pry(main)> bob.interests
-# => []
-
-pry(main)> bob.add_interest("Dead Sea Scrolls")    
-
-pry(main)> bob.add_interest("Gems and Minerals")    
-
-pry(main)> bob.interests
-# => ["Dead Sea Scrolls", "Gems and Minerals"]
-```
-
 ## Iteration 2
 
 Use TDD to create a `Museum` class that responds to the following interaction pattern. For the `recommend_exhibits` method, the `Museum` should recommend exhibits that match a `Patron`'s interests.
 
-```ruby
-pry(main)> require './lib/museum'
-# => true
 
-pry(main)> require './lib/patron'
-# => true
-
-pry(main)> require './lib/exhibit'
-# => true
-
-pry(main)> dmns = Museum.new("Denver Museum of Nature and Science")    
-# => #<Museum:0x00007fb400a6b0b0...>
-
-pry(main)> dmns.name
-# => "Denver Museum of Nature and Science"
-
-pry(main)> dmns.exhibits
-# => []
-
-pry(main)> gems_and_minerals = Exhibit.new("Gems and Minerals", 0)
-# => #<Exhibit:0x00007fb400bbcdd8...>
-
-pry(main)> dead_sea_scrolls = Exhibit.new("Dead Sea Scrolls", 10)    
-# => #<Exhibit:0x00007fb400b851f8...>
-
-pry(main)> imax = Exhibit.new("IMAX", 15)    
-# => #<Exhibit:0x00007fb400acc590...>
-
-pry(main)> dmns.add_exhibit(gems_and_minerals)    
-
-pry(main)> dmns.add_exhibit(dead_sea_scrolls)    
-
-pry(main)> dmns.add_exhibit(imax)
-
-pry(main)> dmns.exhibits
-# => [#<Exhibit:0x00007fb400bbcdd8...>, #<Exhibit:0x00007fb400b851f8...>]
-
-pry(main)> bob = Patron.new("Bob", 20)    
-# => #<Patron:0x00007fb400a51cc8...>
-
-pry(main)> bob.add_interest("Dead Sea Scrolls")    
-
-pry(main)> bob.add_interest("Gems and Minerals")    
-
-pry(main)> sally = Patron.new("Sally", 20)
-# => #<Patron:0x00007fb400036338...>
-
-pry(main)> sally.add_interest("IMAX")    
 
 pry(main)> dmns.recommend_exhibits(bob)
 # => [#<Exhibit:0x00007fb400bbcdd8...>, #<Exhibit:0x00007fb400b851f8...>]
@@ -115,33 +17,10 @@ Use TDD to update your `Museum` class so that it responds to the following inter
 
 For `patrons_by_exhibit_interest`, this method takes no arguments and returns a Hash where each key is an Exhibit. The value associated with that Exhibit is an Array of all the Patrons that have an interest in that exhibit.
 
-```ruby
-pry(main)> require './lib/museum'
-# => true
 
-pry(main)> require './lib/patron'
-# => true
 
-pry(main)> require './lib/exhibit'
-# => true
 
-pry(main)> dmns = Museum.new("Denver Museum of Nature and Science")    
-# => #<Museum:0x00007fb20205d690...>
 
-pry(main)> gems_and_minerals = Exhibit.new("Gems and Minerals", 0)    
-# => #<Exhibit:0x00007fb202238618...>
-
-pry(main)> dead_sea_scrolls = Exhibit.new("Dead Sea Scrolls", 10)    
-# => #<Exhibit:0x00007fb202248748...>
-
-pry(main)> imax = Exhibit.new("IMAX", 15)    
-# => #<Exhibit:0x00007fb20225f8d0...>
-
-pry(main)> dmns.add_exhibit(gems_and_minerals)    
-
-pry(main)> dmns.add_exhibit(dead_sea_scrolls)    
-
-pry(main)> dmns.add_exhibit(imax)    
 
 pry(main)> dmns.patrons
 # => []
