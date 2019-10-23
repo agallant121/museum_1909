@@ -22,8 +22,7 @@ For `patrons_by_exhibit_interest`, this method takes no arguments and returns a 
 
 
 
-pry(main)> dmns.patrons
-# => []
+
 
 pry(main)> bob = Patron.new("Bob", 20)
 # => #<Patron:0x00007fb2011455b8...>
